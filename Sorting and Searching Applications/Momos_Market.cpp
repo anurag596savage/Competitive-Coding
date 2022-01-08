@@ -1,25 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
-pair<int,int> momos_total_price(int* prefix_Sum, int n,int sum)
+pair<ll,ll> momos_total_price(ll* prefix_Sum, ll n, ll sum)
 {
-    int ans=-1;
-    int start=0,end=n-1;
+    ll ans=-1;
+    ll start=0,end=n-1;
     while(start<=end)
     {
-        int mid=start+(end-start)/2;
+        ll mid=start+(end-start)/2;
         
         if(prefix_Sum[mid]<=sum)
         {
             ans=mid;
             start=mid+1;
-        }
-        else
+        }else if(prefix_Sum[mid + 1] > sum && prefix_Sum[mid] < sum){
+            ans = mid - 1;
+            break;
+        }else
         {
             end = mid-1;
         }
     }
-    pair<int,int> p;
+    pair<ll,ll> p;
     p.first=ans+1;
     if(ans!=-1)
     {
@@ -37,24 +40,24 @@ int main()
 {
     int n;
     cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++)
+    ll arr[n];
+    for(ll i=0;i<n;i++)
     {
         cin>>arr[i];
     }
-    int prefix_Sum[n];
+    ll prefix_Sum[n];
     prefix_Sum[0]=arr[0];
-    for(int i=1;i<n;i++)
+    for(ll i=1;i<n;i++)
     {
         prefix_Sum[i]=arr[i]+prefix_Sum[i-1];
     }
-    int t;
+    ll t;
     cin>>t;
     while(t--)
     {
-        int sum;
+        ll sum;
         cin>>sum;
-        pair<int,int> p= momos_total_price(prefix_Sum,n,sum);
+        pair<ll,ll> p= momos_total_price(prefix_Sum,n,sum);
         cout<<p.first<<" "<<p.second<<endl;
     }
     
