@@ -1,6 +1,7 @@
 /*
 
-You are given an integer N and a binary 2D array of size N*N. The given binary matrix represents a maze and a rat starts from the top left cell and has to reach to the bottom right cell of the maze. The rat can move in all the four directions: up, down, left and right.
+You are given an integer N and a binary 2D array of size N*N. The given binary matrix represents a maze and a rat starts from the top left cell 
+and has to reach to the bottom right cell of the maze. The rat can move in all the four directions: up, down, left and right.
 In the given binary matrix, 0 signifies the cell is a dead end and 1 signifies the cell can be used to move from source to destination cell.
 You have to print all the paths, following which rat can move from the top left cell to the bottom right cell of the given binary matrix.
 
