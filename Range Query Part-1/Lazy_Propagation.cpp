@@ -101,7 +101,8 @@ int getQuery(int* segmentTree,int* lazyTree,int index,int start,int end,int left
 		int a = getQuery(segmentTree,lazyTree,2*index,start,mid,left,right);
 		int b = getQuery(segmentTree,lazyTree,2*index+1,mid+1,end,left,right);
 		
-		segmentTree[index] = min(a,b);
+		int ans = min(a,b);
+		return ans;
 	}
 }
 
